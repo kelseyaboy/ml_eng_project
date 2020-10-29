@@ -129,5 +129,4 @@ dmypy.json
 .pyre/
 
 # models too large to include
-./model/sales_model.pkl
-./model/compressed_rf_sales.pkl
+*.pkl
