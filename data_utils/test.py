@@ -12,5 +12,5 @@ json = {"Store":1111,
 
 model = Model()
 model.read_data(json)
-print(model.snippet)
 model.prepare()
+print(model.predict_sales())
