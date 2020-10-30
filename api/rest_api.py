@@ -1,12 +1,11 @@
 from flask import Flask
-from flask_restful import Resource, Api, reqparse, abort
-from mynt_project.ml_eng_project import data_utils
-from data_utils import Model
+from flask_restful import Resource, Api, reqparse
+from Model import Model
 
 app = Flask(__name__)
 api = Api(app)
 
-class HelloWorld(Resource):
+class SalesPredictor(Resource):
     def post(self):
         parser = reqparse.RequestParser()
 
@@ -21,11 +20,15 @@ class HelloWorld(Resource):
         model = Model()
         model.read_data(args)
         model.prepare()
-        pred_sales = model.predict()
+        pred_sales = model.predict_sales().tolist()
 
-        return {'sales': pred_value}
+        if len(pred_sales)==0:
+            pred_sales = float(0)
+        else:
+            pred_sales = float(pred_sales[0])
+        return {'sales': pred_sales}
 
-api.add_resource(HelloWorld, '/predict')
+api.add_resource(SalesPredictor, '/predict')
 
 
 if __name__ == '__main__':
