@@ -1,1 +1,1 @@
-web: gunicorn ./api/rest_api:app
+web: gunicorn ./api/rest_api:app --log-file=-
