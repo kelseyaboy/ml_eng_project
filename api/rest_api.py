@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restful import Resource, Api, reqparse
 from api import Model
 
-app = Flask(__name__)
+app = Flask('app')
 api = Api(app)
 
 
