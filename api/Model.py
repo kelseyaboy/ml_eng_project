@@ -10,7 +10,7 @@ class Model:
         self.columns_path = '/app/api/training_columns.txt'
         self.store_data = pd.read_csv(self.store_path)
         self.snippet = None
-        self.model_path = '/app/model/compressed_rf_sales.pkl'
+        self.model_path = '/app/model/dt_sales.pkl'
         self.model = joblib.load(self.model_path)
         self.features = None
         self.target = None
