@@ -6,11 +6,11 @@ import datetime as dt
 
 class Model:
     def __init__(self):
-        self.store_path = '/app/data/processed_store_data.csv'
-        self.columns_path = '/app/api/training_columns.txt'
+        self.store_path = './data/processed_store_data.csv'
+        self.columns_path = './api/training_columns.txt'
         self.store_data = pd.read_csv(self.store_path)
         self.snippet = None
-        self.model_path = '/app/model/dt_sales.pkl'
+        self.model_path = './model/dt_sales.pkl'
         self.model = joblib.load(self.model_path)
         self.features = None
         self.target = None
