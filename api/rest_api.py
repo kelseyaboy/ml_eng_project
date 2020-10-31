@@ -31,4 +31,4 @@ class SalesPredictor(Resource):
 
 api.add_resource(SalesPredictor, '/predict')
 
-app.run(os.getenv('PORT'))
+app.run()
