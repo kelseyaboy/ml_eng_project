@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 from api import Model
+import os
 
 app = Flask(__name__)
 api = Api(app)
@@ -30,4 +31,4 @@ class SalesPredictor(Resource):
 
 api.add_resource(SalesPredictor, '/predict')
 
-app.run()
+app.run(os.getenv('PORT'))
