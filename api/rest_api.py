@@ -27,9 +27,9 @@ class SalesPredictor(Resource):
             pred_sales = float(0)
         else:
             pred_sales = float(pred_sales[0])
-        return {'sales': pred_sales}
+        return {'sales': pred_sales}, 200
 
 api.add_resource(SalesPredictor, '/predict')
 
 if __name__=='__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)

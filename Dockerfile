@@ -3,5 +3,4 @@ WORKDIR /app
 COPY . .
 RUN pip install -r requirements.txt
 EXPOSE 5000
-CMD cd ./api
-CMD ["python", "./api/rest_api.py"]
+CMD ["python", "app.py"]
