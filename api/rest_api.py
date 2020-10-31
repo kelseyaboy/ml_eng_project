@@ -30,5 +30,3 @@ class SalesPredictor(Resource):
         return {'sales': pred_sales}
 
 api.add_resource(SalesPredictor, '/predict')
-
-app.run()
