@@ -4,3 +4,4 @@ pandas
 flask
 flask_restful
 sklearn
+gunicorn
