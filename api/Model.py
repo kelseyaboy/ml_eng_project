@@ -1,5 +1,4 @@
 # import libraries
-import json
 import joblib
 import numpy as np
 import pandas as pd
@@ -7,11 +6,11 @@ import datetime as dt
 
 class Model:
     def __init__(self):
-        self.store_path = '../data/processed_store_data.csv'
-        self.columns_path = './training_columns.txt'
+        self.store_path = '/app/data/processed_store_data.csv'
+        self.columns_path = '/app/api/training_columns.txt'
         self.store_data = pd.read_csv(self.store_path)
         self.snippet = None
-        self.model_path = '../model/compressed_rf_sales.pkl'
+        self.model_path = '/app/model/compressed_rf_sales.pkl'
         self.model = joblib.load(self.model_path)
         self.features = None
         self.target = None
@@ -29,8 +28,6 @@ class Model:
             with open(self.columns_path, 'r') as columns_file:
                 self.exp_cols = columns_file.read().split(',')
                 self.exp_cols.remove('')
-            
-            print(self.exp_cols)
 
             # Ensure datatypes
             self.snippet['Store'] = self.snippet['Store'].astype(int)
@@ -79,8 +76,6 @@ class Model:
                                             'CompetitionOpenSinceYear', 'Promo2SinceWeek', 
                                             'Promo2SinceYear', 'PromoInterval', 'CompetitionOpenSince',
                                             'Promo2Since', 'Unnamed: 0'], axis=1)
-
-            print(self.features.columns)
 
             self.target = self.snippet[['Sales']]
 
