@@ -1,0 +1,1 @@
+web: gunicorn ./api/rest_api:app
