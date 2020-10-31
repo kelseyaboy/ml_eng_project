@@ -1,10 +1,10 @@
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
-from api import Model
+from api.Model import Model
+from api import app
 
-app = Flask('app')
+# app = Flask(__name__)
 api = Api(app)
-
 
 class SalesPredictor(Resource):
     def post(self):
@@ -18,7 +18,7 @@ class SalesPredictor(Resource):
         
         args = parser.parse_args()
 
-        model = Model.Model()
+        model = Model()
         model.read_data(args)
         model.prepare()
         pred_sales = model.predict_sales().tolist()
@@ -30,3 +30,6 @@ class SalesPredictor(Resource):
         return {'sales': pred_sales}
 
 api.add_resource(SalesPredictor, '/predict')
+
+if __name__=='__main__':
+    app.run(debug=True)

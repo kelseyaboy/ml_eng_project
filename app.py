@@ -1,3 +1,4 @@
-from api import rest_api
+from api import app
 
-rest_api.api.app.run(debug=True)
+if __name__=='__main__':
+    app.run(debug=True)
