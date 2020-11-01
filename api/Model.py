@@ -19,7 +19,6 @@ class Model:
         self.snippet = pd.DataFrame(json_string, index=[0])
 
     def prepare(self):
-        print(self.snippet['Open'][0])
         if self.snippet['Open'][0]!=0:
 
             # Capture training columns
