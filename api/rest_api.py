@@ -30,6 +30,3 @@ class SalesPredictor(Resource):
         return {'sales': pred_sales}, 200
 
 api.add_resource(SalesPredictor, '/predict')
-
-if __name__=='__main__':
-    app.run(host='0.0.0.0', debug=True)
